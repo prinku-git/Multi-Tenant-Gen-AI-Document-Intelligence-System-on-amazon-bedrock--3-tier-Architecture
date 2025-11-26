@@ -24,7 +24,7 @@ This project establishes a **highly available and secure PDF summarization servi
       
     * **Amazon Relational Database Service (RDS):** Provides a managed, scalable relational database (like PostgreSQL or MySQL) to store the final, **summarized text** from the PDFs.
       
-    * **AWS Key Management Service (KMS):** A crucial security component used to create and manage cryptographic keys. Specifically, a **Customer Managed Key (CMK)** is used for **Server-Side Encryption with KMS (SSE-KMS)** to encrypt both the data in S3 and RDS, meeting strict compliance and security requirements.
+    * **AWS Key Management Service (KMS):** A crucial security component used to create and manage cryptographic keys. Specifically, a **Customer Managed Key (CMK)** is used for **Server-Side Encryption with KMS (SSE-KMS)** to encrypt both the data in S3 , meeting strict compliance and security requirements.
 
     * **ML & MONITORING LAYER:** This layer encompasses the machine learning and operational visibility components.
   
@@ -48,8 +48,7 @@ This project establishes a **highly available and secure PDF summarization servi
 
 ## 2. ARCHITECTURE DIAGRAM
 
-<img width="1355" height="679" alt="Architecture" src="https://github.com/user-attachments/assets/5876d847-7bd1-4d80-b7b3-5f45a18b5b06" />
-
+<img width="1353" height="696" alt="Architecture" src="https://github.com/user-attachments/assets/d4e7faeb-b3bc-43bc-a14c-87bc6fc7f169" />
 
 ---
 
@@ -67,7 +66,8 @@ The principle of **Least Privilege** is followed, ensuring every resource has on
     * **Attach** the custom-created IAM Policy from the previous step.
     * **Name** the role logically .
       
-<img width="1366" height="642" alt="Screenshot (2266)" src="https://github.com/user-attachments/assets/74ddb8ee-a770-473e-93fa-b0688ee79275" />
+<img width="1366" height="711" alt="Screenshot (2266)" src="https://github.com/user-attachments/assets/8068ca39-3720-4577-a473-7aca0f9e88fd" />
+
 
 ### AWS Key Management Service (KMS)
 
@@ -80,9 +80,9 @@ KMS is used for **Server-Side Encryption with KMS (SSE-KMS)** to protect data at
     * **Define Key Administrators** .
     * **Define Key Usage Permissions**
       
- <img width="1366" height="703" alt="Screenshot (1704)" src="https://github.com/user-attachments/assets/5144a73b-42fb-4ee8-95f7-a84255bca33e" />
+ <img width="1366" height="703" alt="Screenshot (1704)" src="https://github.com/user-attachments/assets/84586773-87bb-4973-b754-5dc3ce1b62a4" />
  
- <img width="1366" height="711" alt="Screenshot (1705)" src="https://github.com/user-attachments/assets/d9ee25a5-8ffb-43fa-856f-47f54f3136c1" />
+ <img width="1366" height="711" alt="Screenshot (1705)" src="https://github.com/user-attachments/assets/93ca5a95-16d0-40f0-b58c-8e9869fe6ca6" />
  
 ---
 
@@ -98,9 +98,10 @@ The data layer is configured for durability, security, and integration with the 
     * **Enable** **Default encryption** → **SSE-KMS**.
     * **Select** the KMS created.
     
-      <img width="1366" height="713" alt="Screenshot (1713)" src="https://github.com/user-attachments/assets/b699dd59-367e-41ec-bee8-c520305dfa79" />
+<img width="1366" height="707" alt="Screenshot (1714)" src="https://github.com/user-attachments/assets/026e0ed7-3234-47c0-8813-05c748275887" />
 
-      <img width="1366" height="711" alt="Screenshot (1715)" src="https://github.com/user-attachments/assets/b1a68e6b-ffdd-4d32-80cc-f18010b4ba58" />
+<img width="1366" height="713" alt="Screenshot (1713)" src="https://github.com/user-attachments/assets/b77af634-aa26-47c8-9460-285fa5f67670" />
+
       
 2. **Set S3 Bucket Policy :**
 
@@ -109,24 +110,21 @@ The data layer is configured for durability, security, and integration with the 
 1. **Create RDS Database Instance:**
     * Choose Aurora MySQL.
     * Place DB inside **Private Subnets**.
-    * Enable **Encryption** with the KMS created.
-      
-      <img width="1366" height="705" alt="Screenshot (1716)" src="https://github.com/user-attachments/assets/8af4feca-92a2-497d-bb35-e8fc24bc7b92" />
-      
-      <img width="1366" height="700" alt="Screenshot (1718)" src="https://github.com/user-attachments/assets/ecf777ba-7f03-4b4d-9bec-cb0e2572332c" />
-      
-      <img width="1366" height="711" alt="Screenshot (1731)" src="https://github.com/user-attachments/assets/273ed523-5f88-4fcc-aaac-f1c1e814b260" />
 
+   <img width="1366" height="705" alt="Screenshot (1716)" src="https://github.com/user-attachments/assets/c6f34fcb-f194-4182-8563-fe0734a204e0" />
+   
+   <img width="1366" height="700" alt="Screenshot (1718)" src="https://github.com/user-attachments/assets/3c834283-1c3d-45e2-a9c8-cbf78c941dd2" />
 
 2. **Configure Security Groups:** 
 
     *Configure security groups for Ec2,Bastion host,ALB,RDS
 
-   <img width="1110" height="231" alt="Screenshot (1953)" src="https://github.com/user-attachments/assets/65c48155-f79d-4bfd-bec5-42b949cbee53" />
-   
-   <img width="1366" height="431" alt="Screenshot (1955)" src="https://github.com/user-attachments/assets/1b9ae4a5-dbb2-4f20-a104-b122b80b19f4" />
+  <img width="1110" height="231" alt="Screenshot (1953)" src="https://github.com/user-attachments/assets/c517f29a-f0e9-4dc9-baae-96c816a69445" />
 
-   <img width="1366" height="413" alt="Screenshot (1954)" src="https://github.com/user-attachments/assets/406d64ff-b785-4c43-90e2-c3f339fd9ef4" />
+  <img width="1366" height="431" alt="Screenshot (1955)" src="https://github.com/user-attachments/assets/9257db8f-291a-4740-bd58-c109bc469c50" />
+
+  <img width="1366" height="413" alt="Screenshot (1954)" src="https://github.com/user-attachments/assets/bd40b5f7-0f2c-45dd-b669-b2d945237358" />
+
 
 ---
 ## 5. COMPUTE & ML LAYER
@@ -150,19 +148,23 @@ The data layer is configured for durability, security, and integration with the 
     Select or create your **Key Pair** for SSH access.
 7. **Launch the instance.**
    
- <img width="1366" height="713" alt="Screenshot (1766)" src="https://github.com/user-attachments/assets/748e5fea-65d0-4cd7-9dcd-c0a976272dbb" />
+ <img width="1366" height="713" alt="Screenshot (1766)" src="https://github.com/user-attachments/assets/bb5af8f2-b7df-4460-95d3-0b9e79ff9fb5" />
 
- <img width="1366" height="705" alt="Screenshot (1768)" src="https://github.com/user-attachments/assets/741e4b50-7eef-4ce9-a11e-b9d1d143bd27" />
+ <img width="1366" height="705" alt="Screenshot (1768)" src="https://github.com/user-attachments/assets/a29d149d-6d4d-4195-ab0a-a6ef411c50ff" />
+
+
 
  **2.Private Ec2 Instance**
 
  1.Follow the same Ec2 settings above,use **Private Subnet** for this.
 
- <img width="1366" height="709" alt="Screenshot (1723)" src="https://github.com/user-attachments/assets/12098c30-07c4-43ff-a1fa-d466adb498e5" />
- 
- <img width="593" height="577" alt="Screenshot (1721)" src="https://github.com/user-attachments/assets/61253c99-5e93-487a-8b81-1e21714b3563" />
+<img width="1366" height="713" alt="Screenshot (1720)" src="https://github.com/user-attachments/assets/5c8b12b2-f39f-4b36-82dc-30004568ae09" />
 
- 
+<img width="593" height="577" alt="Screenshot (1721)" src="https://github.com/user-attachments/assets/3156ee21-1fe8-4259-86fa-4d13bd641981" />
+
+<img width="1366" height="709" alt="Screenshot (1723)" src="https://github.com/user-attachments/assets/4b2d1127-5a81-44f3-ad11-a10196f88eaf" />
+
+
 3. **Create Launch Template** with Amazon linux:
 
 1. **Navigate to:**  
@@ -186,9 +188,10 @@ The data layer is configured for durability, security, and integration with the 
      - **Security Groups:**  
        Select the previously created Ec2 Security group*.
        
-     <img width="1366" height="709" alt="Screenshot (1748)" src="https://github.com/user-attachments/assets/f35aba91-9a51-4223-b227-111576c67b16" />
-     
-     <img width="1366" height="707" alt="Screenshot (1750)" src="https://github.com/user-attachments/assets/5a00aa99-1579-4934-bac8-d4b4eed87e31" />
+     <img width="1366" height="709" alt="Screenshot (1748)" src="https://github.com/user-attachments/assets/7dc2a942-23a8-4377-9a40-47c6ed085350" />
+
+     <img width="1366" height="707" alt="Screenshot (1750)" src="https://github.com/user-attachments/assets/73f7314d-300c-4f06-8f40-271266de3687" />
+
 
 4. **Create Auto Scaling Group** across Private Subnets
     **Step 4.1 — Open Auto Scaling Console**
@@ -197,11 +200,11 @@ The data layer is configured for durability, security, and integration with the 
    
     Name your group: **Document-Processor-ASG**
    
-   <img width="1366" height="707" alt="Screenshot (1752)" src="https://github.com/user-attachments/assets/a9a8254a-4b38-4662-8d17-497d84998fa0" />
-   
-   <img width="1366" height="707" alt="Screenshot (1753)" src="https://github.com/user-attachments/assets/4a5ad3fd-aa38-4f2b-b878-f6cec3a9fef2" />
+   <img width="1366" height="707" alt="Screenshot (1752)" src="https://github.com/user-attachments/assets/87ab5dd6-bc63-43ff-9d72-d90cb011eb62" />
 
-    <img width="1366" height="711" alt="Screenshot (1773)" src="https://github.com/user-attachments/assets/d7245a60-64c8-4687-8b3e-78900b57d212" />
+   <img width="1366" height="707" alt="Screenshot (1753)" src="https://github.com/user-attachments/assets/bda05124-a654-4964-8861-73fd7ea93390" />
+
+   <img width="1366" height="711" alt="Screenshot (1754)" src="https://github.com/user-attachments/assets/48d5d529-058a-4c1d-be7f-48e9492042c6" />
 
 
  ### Application Load Balancer (ALB)
@@ -211,24 +214,25 @@ The data layer is configured for durability, security, and integration with the 
  Go to **EC2 → Target Groups → Create Target Group**.
  Target Type: **Instances**.
 
-    <img width="1366" height="709" alt="Screenshot (1743)" src="https://github.com/user-attachments/assets/a345118a-bac9-4c3d-bdfc-15c1bf76417e" />
-   
+ <img width="1366" height="709" alt="Screenshot (1743)" src="https://github.com/user-attachments/assets/22b9e5b1-b74a-47e9-9fa7-770f1ba5d953" />
+
 2. Create ALB in Public Subnets
    Listener → Forward to Target Group
    Navigate to ALB Console**
    Go to **EC2 → Load Balancers → Create Load Balancer → Application Load Balancer**.
-   
- <img width="1366" height="713" alt="Screenshot (1745)" src="https://github.com/user-attachments/assets/4cfffdde-63f9-4a5e-a5ec-85035662527a" />
 
- 
- <img width="1366" height="709" alt="Screenshot (1743)" src="https://github.com/user-attachments/assets/a345118a-bac9-4c3d-bdfc-15c1bf76417e" />
- 
+   <img width="1366" height="768" alt="Screenshot (1734)" src="https://github.com/user-attachments/assets/a0cacab0-b667-4a01-8746-d01a2ab480c3" />
 
+   <img width="1366" height="713" alt="Screenshot (1745)" src="https://github.com/user-attachments/assets/a2459a49-6d89-45da-8616-daccd6233326" />
+
+   <img width="1366" height="715" alt="Screenshot (1746)" src="https://github.com/user-attachments/assets/6427870d-1f63-4bb8-bbcb-64cea8fbdaa6" />
+ 
 ### Amazon Bedrock - Titan Text G1 – Express
 
 1.Submit use case details for anthropic,Before your EC2 application can call **Titan Text G1-Express**, you must ensure that the model is enabled for your AWS account. Amazon Bedrock requires a one-time approval process for some foundation models, including Titan, to prevent misuse and to ensure the model is used responsibly.
 
-<img width="818" height="692" alt="Screenshot (1898)" src="https://github.com/user-attachments/assets/25979378-c2f5-4113-97ed-67520689d7dc" />
+<img width="815" height="691" alt="Screenshot (1898)" src="https://github.com/user-attachments/assets/4ef680ab-0d28-4095-8925-e2489668f3de" />
+
 
 2.Confirm Titan Text G1-express is responding or else payment informations needs to be updated.
 
@@ -245,9 +249,10 @@ If billing is not active, Bedrock returns errors like:
  **“Model access restricted”**
  **“Payment method required”**
 
-<img width="1366" height="715" alt="Screenshot (1998)" src="https://github.com/user-attachments/assets/b48fe741-23bc-491e-86e8-452a7f89ae4a" />
+<img width="1366" height="701" alt="Screenshot (1998)" src="https://github.com/user-attachments/assets/bc050a3d-bd64-403a-bd0e-6d1ea331cb14" />
 
-<img width="1366" height="709" alt="Screenshot (2003)" src="https://github.com/user-attachments/assets/8aa15389-8524-43d5-b0d3-f11fbaaec495" />
+<img width="1366" height="705" alt="Screenshot (2003)" src="https://github.com/user-attachments/assets/032c8c95-4112-4664-9bd2-f1cbe2d134db" />
+
 
 ## 6.DEPLOYMENT :
 
