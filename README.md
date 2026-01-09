@@ -1,4 +1,4 @@
-# **Multi Tenant Gen AI Document Intelligence System on amazon bedrock 3 tier Architecture**
+# **Multi Tenant GenAI Document Intelligence System on amazon bedrock 3 tier Architecture**
 
 A scalable multi-tenant document summarization system built using AWS services, including **EC2**, **ALB**, **Auto Scaling**, **S3**, **RDS**, **Bedrock**, **VPC**, and **CloudWatch**.
 
